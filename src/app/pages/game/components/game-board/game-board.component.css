@@ -1,0 +1,77 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.game-board {
+  margin-top: 5%;
+  border: 5px solid black;
+  box-shadow: 0 0 12px ;
+  width: 75vw;
+  height: 62vh;
+  max-width: 1024px;
+  aspect-ratio: 25/11;
+  display: grid;
+  align-self: center;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  background-image: url("/assets/board1.png");
+  background-position: center;
+  flex-grow: 1;
+}
+
+
+
+.pause-overlay,
+.game-over {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2; padding: 20px;
+  color: white;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blur {
+  filter: blur(2px);
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    font-size: 25px;
+  }
+  .game-board {
+    aspect-ratio: 29/23;
+    grid-template-columns: repeat(29, 1fr);
+    grid-template-rows: repeat(23, 1fr);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    font-size: 18px;
+  }
+  .game-board {
+    height: 70vh;
+    aspect-ratio: 50/23;
+    grid-template-columns: repeat(50, 1fr);
+    grid-template-rows: repeat(23, 1fr);
+  }
+
+}
+
+
+
+
+

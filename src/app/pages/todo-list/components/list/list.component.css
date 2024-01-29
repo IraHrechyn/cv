@@ -1,0 +1,14 @@
+.edit-fields{
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-fields input{
+  margin-bottom: 7px;
+}
+
+
+
+
+
+

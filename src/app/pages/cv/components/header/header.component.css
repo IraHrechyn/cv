@@ -1,0 +1,37 @@
+.header .headerContainer {
+  display: flex;
+  align-items: center;
+}
+
+.header .menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.header .logo{
+  margin-right: 28%;
+}
+
+.header .headerImg{
+  height: 30px;
+  width: 30px;
+}
+
+.header .menu ul li {
+  margin-right: 20px;
+}
+
+.header .menu ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.header .app_header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px;
+  margin: 4px;
+}
+
