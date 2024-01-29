@@ -35,7 +35,7 @@
 
 @font-face {
   font-family: "digital";
-  src: url('../../../../../../../cv-app/src/assets/digital-7.ttf');
+  src: url('/assets/digital-7.ttf');
 }
 
 @media (max-width: 680px) {

@@ -4,11 +4,11 @@
   padding: 0;
 }
 
-body {
+.movies-page {
   background-color: rgba(34, 34, 37, 0.91);
   display: flex;
   justify-content: center;
-
+  padding: 15px;
 }
 
 .main-container {
@@ -22,74 +22,12 @@ body {
   overflow: hidden;
 }
 
-.bg{
+.bg {
   background-image: url("/assets/bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 43vh;
-}
-@media (max-width: 1020px) {
-  .film-card {
-    width: calc(33.333333333333% - 20px);
-  }
-
-}
-
-@media (max-width: 680px) {
-  .film-card {
-    width: calc(50% - 20px);
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .search-container {
-    margin-left: 35px;
-  }
-
-  .search {
-    width: calc(100% - 10px);
-  }
-
-  .pagination {
-    display: flex;
-    justify-content: center;
-    background: #000;
-  }
-}
-
-@media (max-width: 530px) {
-  .main-container {
-    background: #000;
-  }
-  .film-card {
-    width: calc(100% - 20px);
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .search-container {
-    margin-left: 10px;
-  }
-
-  .search {
-    width: calc(100% - 20px);
-  }
-
-  .pagination {
-    display: flex;
-    justify-content: center;
-  }
-
-  .modal-image {
-    margin-top: 20px;
-  }
 }
 
 .noResult {
@@ -98,4 +36,10 @@ body {
   justify-content: center;
   font-size: 18px;
   color: #cccccc;
+}
+
+@media screen and (orientation: landscape) {
+  .bg {
+    margin-bottom: 8%;
+  }
 }

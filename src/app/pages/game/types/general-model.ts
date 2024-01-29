@@ -1,29 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs';
-import {Position} from "./position.interface";
+import { Position } from "./position.interface";
 
 @Injectable({
   providedIn: 'root',
 })
 export class GeneralModel {
+  readonly eatFoodSound: HTMLAudioElement = new Audio('assets/eating.mp3');
+  readonly deathSound: HTMLAudioElement = new Audio('assets/game-over.mp3');
   private _timerSubscription!: Subscription;
   private _lastRenderTime: number = 0;
   private _requiredObstacles: number = 0;
   private _gameBoard!: HTMLDivElement;
   private _soundOn: boolean = true;
-  readonly eatFoodSound: HTMLAudioElement = new Audio('assets/eating.mp3');
-  readonly deathSound:HTMLAudioElement = new Audio('assets/game-over.mp3');
-
   private _baseSpeed: number = 2;
 
   private _score: number = 0;
   private _bestScore: number = 0;
 
   private _time: number = 0;
-  private _timeOut: string ='00:00';
+  private _timeOut: string = '00:00';
   private _minutes: number = 0;
   private _seconds: number = 0;
-  private _bestTimeInt:number = 0;
+  private _bestTimeInt: number = 0;
   private _bestTime: string = '00:00';
 
   private _headTurn: number = 0;
@@ -46,18 +45,23 @@ export class GeneralModel {
   get widthScreen(): number {
     return this._widthScreen;
   }
+
   set widthScreen(value: number) {
     this._widthScreen = value;
   }
+
   get gridSizeY(): number {
     return this._gridSizeY;
   }
+
   set gridSizeY(value: number) {
     this._gridSizeY = value;
   }
+
   get gridSizeX(): number {
     return this._gridSizeX;
   }
+
   set gridSizeX(value: number) {
     this._gridSizeX = value;
   }
@@ -65,6 +69,7 @@ export class GeneralModel {
   get timerSubscription(): Subscription {
     return this._timerSubscription;
   }
+
   set timerSubscription(value: Subscription) {
     this._timerSubscription = value;
   }
@@ -72,6 +77,7 @@ export class GeneralModel {
   get lastRenderTime(): number {
     return this._lastRenderTime;
   }
+
   set lastRenderTime(value: number) {
     this._lastRenderTime = value;
   }
@@ -79,6 +85,7 @@ export class GeneralModel {
   get requiredObstacles(): number {
     return this._requiredObstacles;
   }
+
   set requiredObstacles(value: number) {
     this._requiredObstacles = value;
   }
@@ -86,6 +93,7 @@ export class GeneralModel {
   get gameBoard(): HTMLDivElement {
     return this._gameBoard;
   }
+
   set gameBoard(value: HTMLDivElement) {
     this._gameBoard = value;
   }
@@ -93,6 +101,7 @@ export class GeneralModel {
   get soundOn(): boolean {
     return this._soundOn;
   }
+
   set soundOn(value: boolean) {
     this._soundOn = value;
   }
@@ -104,6 +113,7 @@ export class GeneralModel {
   get score(): number {
     return this._score;
   }
+
   set score(value: number) {
     this._score = value;
   }
@@ -111,6 +121,7 @@ export class GeneralModel {
   get bestScore(): number {
     return this._bestScore;
   }
+
   set bestScore(value: number) {
     this._bestScore = value;
   }
@@ -118,6 +129,7 @@ export class GeneralModel {
   get time(): number {
     return this._time;
   }
+
   set time(value: number) {
     this._time = value;
   }
@@ -125,6 +137,7 @@ export class GeneralModel {
   get timeOut(): string {
     return this._timeOut;
   }
+
   set timeOut(value: string) {
     this._timeOut = value;
   }
@@ -132,6 +145,7 @@ export class GeneralModel {
   get minutes(): number {
     return this._minutes;
   }
+
   set minutes(value: number) {
     this._minutes = value;
   }
@@ -139,6 +153,7 @@ export class GeneralModel {
   get seconds(): number {
     return this._seconds;
   }
+
   set seconds(value: number) {
     this._seconds = value;
   }
@@ -146,6 +161,7 @@ export class GeneralModel {
   get bestTimeInt(): number {
     return this._bestTimeInt;
   }
+
   set bestTimeInt(value: number) {
     this._bestTimeInt = value;
   }
@@ -153,6 +169,7 @@ export class GeneralModel {
   get bestTime(): string {
     return this._bestTime;
   }
+
   set bestTime(value: string) {
     this._bestTime = value;
   }
@@ -160,6 +177,7 @@ export class GeneralModel {
   get headTurn(): number {
     return this._headTurn;
   }
+
   set headTurn(value: number) {
     this._headTurn = value;
   }
@@ -167,6 +185,7 @@ export class GeneralModel {
   get foodPosition(): Position {
     return this._foodPosition;
   }
+
   set foodPosition(value: Position) {
     this._foodPosition = value;
   }
@@ -208,12 +227,16 @@ export class GeneralModel {
     if (value) this.isPaused = true;
   }
 
+  get modalVisible(): boolean {
+    return this._modalVisible;
+  }
+
   set modalVisible(value: boolean) {
     this._modalVisible = value;
   }
 
-  get modalVisible(): boolean {
-    return this._modalVisible;
+  get snakeSpeed(): number {
+    return this.level < 10 ? this.baseSpeed + this.level : this.baseSpeed + 10;
   }
 
   levelUpdate(): void {
@@ -223,16 +246,12 @@ export class GeneralModel {
   restart(): void {
     window.location.reload();
   }
-  get snakeSpeed(): number {
-    return this.level < 10 ? this.baseSpeed + this.level : this.baseSpeed + 10;
-  }
 
-  setGridSize(){
-    if(this.widthScreen <= 768){
+  setGridSize() {
+    if (this.widthScreen <= 768 && this.widthScreen > 480) {
       this.gridSizeX = 28;
-      this.gridSizeY = 30;
-    }
-    if(this.widthScreen <= 480){
+      this.gridSizeY = 32;
+    } else if (this.widthScreen <= 480) {
       this.gridSizeX = 50;
       this.gridSizeY = 23;
     }

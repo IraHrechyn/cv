@@ -6,7 +6,7 @@
   margin: 0 auto;
   background-size: cover;
   border-radius: 50%;
-  background-image: url('../../../../../../../cv-app/src/assets/clock.png');
+  background-image: url('/assets/clock.png');
   background-position: center;
   box-shadow: 10px 10px 20px rgba(0.25, 0.25, 0.25, 0.25);
 }

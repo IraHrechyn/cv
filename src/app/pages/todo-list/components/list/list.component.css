@@ -1,14 +1,12 @@
-.edit-fields{
+.edit-fields {
   display: flex;
   flex-direction: column;
 }
 
-.edit-fields input{
+.edit-fields input {
   margin-bottom: 7px;
 }
 
-
-
-
-
-
+.empty-message {
+  text-align: center;
+}
